@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Energy Demonstrator</title>
+  <link rel="stylesheet" href="/static/style.css" />
+  <link rel="icon" href="data:,">
+
+  <!-- Chart.js-->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+  <!--Three.js import map -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+      "three/examples/jsm/controls/OrbitControls.js": "https://unpkg.com/three@0.160.0/examples/jsm/controls/OrbitControls.js",
+      "three/examples/jsm/postprocessing/EffectComposer.js": "https://unpkg.com/three@0.160.0/examples/jsm/postprocessing/EffectComposer.js",
+      "three/examples/jsm/postprocessing/RenderPass.js": "https://unpkg.com/three@0.160.0/examples/jsm/postprocessing/RenderPass.js",
+      "three/examples/jsm/postprocessing/UnrealBloomPass.js": "https://unpkg.com/three@0.160.0/examples/jsm/postprocessing/UnrealBloomPass.js",
+      "three/examples/jsm/renderers/CSS2DRenderer.js": "https://unpkg.com/three@0.160.0/examples/jsm/renderers/CSS2DRenderer.js"
+    }
+  }
+  </script>
+</head>
+
+<body>
+  <div id="loadingScreen" aria-live="polite">
+    <div class="loadingInner">
+      <div class="windmill">
+        <div class="tower"></div>
+        <div class="spinner">
+          <div class="blade"></div>
+          <div class="blade"></div>
+          <div class="blade"></div>
+          <div class="hub"></div>
+        </div>
+      </div>
+      <div class="loadingText">Welcome to Energy Demonstrator</div>
+    </div>
+  </div>
+
+  <div id="layout">
+
+    <!-- LEFT: KPIs -->
+    <aside id="left">
+      <div class="brand">Energy Dashboard</div>
+
+      <div class="kpi">
+        <div class="k">Production</div>
+        <div id="k_prod" class="v">—</div>
+        <div id="k_prod_b" class="s">—</div>
+      </div>
+
+      <div class="kpi">
+        <div class="k">Energy Resources</div>
+        <div class="s resources">
+          <div>Wind <span id="k_wind">—</span></div>
+          <div>Hydro <span id="k_hydro">—</span></div>
+          <div>Solar <span id="k_solar">—</span></div>
+        </div>
+      </div>
+
+      <div class="kpi">
+        <div class="k">Consumption</div>
+        <div id="k_cons" class="v">—</div>
+        <div id="k_cons_b" class="s">—</div>
+      </div>
+
+      <div class="kpi">
+        <div class="k">Net</div>
+        <div id="k_net" class="v">—</div>
+        <div id="k_grid" class="s">—</div>
+      </div>
+
+      <div class="kpi">
+        <div class="k">Battery SOC</div>
+        <div id="k_soc" class="v">—</div>
+        <div id="k_co2" class="s">—</div>
+      </div>
+
+      <div class="kpi">
+        <div class="k">Priority loads</div>
+        <div id="k_priority" class="s">—</div>
+      </div>
+    </aside>
+
+    <!-- CENTER: 3D and  Charts under it -->
+    <main id="center">
+      <div id="sceneWrap">
+        <canvas id="c"></canvas>
+        <div id="toast">Loading…</div>
+      </div>
+
+      <section id="hudCharts">
+        <div class="hudHeader">
+          <div>
+            <div class="hudTitle">Energy Control</div>
+            <div class="hudSub">Production, demand, storage & grid support</div>
+          </div>
+          <div id="modePill" class="pill">—</div>
+        </div>
+
+        <div class="hudGrid">
+          <div class="hudCard wide">
+            <div class="hudLabel">Production vs Consumption (last 5 min)</div>
+            <canvas id="chart_pc"></canvas>
+          </div>
+
+          <div class="hudCard">
+            <div class="hudLabel">Battery SOC</div>
+            <canvas id="chart_soc"></canvas>
+          </div>
+
+          <div class="hudCard">
+            <div class="hudLabel">Renewables split</div>
+            <canvas id="chart_split"></canvas>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- RIGHT: Controls -->
+    <aside id="right">
+      <div class="panelTitle">Controls</div>
+
+      <div class="controlRow">
+        <label for="scenario">Scenario</label>
+        <select id="scenario">
+          <option value="sunny_day">Sunny day</option>
+          <option value="night">Night</option>
+          <option value="wind_lull">Wind lull</option>
+          <option value="dry_season">Dry season (low hydro)</option>
+          <option value="peak_demand">Peak demand</option>
+          <option value="grid_outage">Grid outage</option>
+        </select>
+      </div>
+
+      <div class="btnRow">
+        <button id="btn_apply">Apply</button>
+        <button id="btn_fit">Fit view</button>
+      </div>
+
+      <div class="btnRow">
+        <button id="btn_emergency" class="danger">Toggle Emergency</button>
+        <button id="btn_grid">Toggle Grid</button>
+      </div>
+
+      <div class="panelTitle">Device status</div>
+      <div class="statusBox" id="statusBox">
+        <div class="muted">Waiting for telemetry…</div>
+      </div>
+
+      <div class="panelTitle">Teaching hints</div>
+      <div class="hintBox" id="hintBox">
+        Use scenarios to show: variability, storage buffering, grid import, and priority loads.
+      </div>
+    </aside>
+
+  </div>
+
+  <script type="module" src="/static/app.js"></script>
+</body>
+</html>
