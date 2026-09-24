@@ -147,10 +147,10 @@ This is an educational demonstrator, not a grid simulator. The energy model uses
 
 ## Team
 
-Developed as a team project at FH Kärnten. Other components (3D dashboard, backend energy model) were built by team members:
+Developed as a team project at FH Kärnten.
 
 - **Elaheh Bayat**: RFID subsystem (hardware, firmware, integration)
-- **Emreh Kara**  :  RFID subsystem 
+- Other components (3D dashboard, backend energy model) were developed by other members of the project team.
 
 ## Author
 
