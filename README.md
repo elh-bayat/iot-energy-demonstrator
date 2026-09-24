@@ -11,8 +11,7 @@ A portable and interactive demonstrator that explains how a renewable power grid
 ![Three.js](https://img.shields.io/badge/Three.js-3D%20dashboard-black?logo=three.js)
 ![PlatformIO](https://img.shields.io/badge/PlatformIO-build-orange?logo=platformio&logoColor=white)
 
-<!-- Add a screenshot or GIF of the dashboard here, for example:
-![Dashboard](docs/dashboard.png) -->
+Screenshot 2026-09-24 184941.png
 
 ---
 
@@ -150,11 +149,10 @@ This is an educational demonstrator, not a grid simulator. The energy model uses
 
 Developed as a team project at FH Kärnten. Other components (3D dashboard, backend energy model) were built by team members:
 
-- **Elaheh (Eli) Bayat**: RFID subsystem (hardware, firmware, integration)
-- *Team member*: *role*
-- *Team member*: *role*
+- **Elaheh Bayat**: RFID subsystem (hardware, firmware, integration)
+- **Emreh Kara**  :  RFID subsystem 
 
 ## Author
 
 **Elaheh (Eli) Bayat**, Embedded & IoT Systems Engineer
-[LinkedIn](https://www.linkedin.com/in/) · [GitHub](https://github.com/elh-bayat)
+[LinkedIn](https://www.linkedin.com/in/elaheh-bayat/) · [GitHub](https://github.com/elh-bayat)
