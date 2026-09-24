@@ -11,7 +11,7 @@ A portable and interactive demonstrator that explains how a renewable power grid
 ![Three.js](https://img.shields.io/badge/Three.js-3D%20dashboard-black?logo=three.js)
 ![PlatformIO](https://img.shields.io/badge/PlatformIO-build-orange?logo=platformio&logoColor=white)
 
-Screenshot 2026-09-24 184941.png
+![Energy Demonstrator dashboard](docs/dashboard.png)
 
 ---
 
