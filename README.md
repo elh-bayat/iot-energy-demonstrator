@@ -157,4 +157,4 @@ Developed as a team project at FH Kärnten. Other components (3D dashboard, back
 ## Author
 
 **Elaheh (Eli) Bayat**, Embedded & IoT Systems Engineer
-[LinkedIn](https://www.linkedin.com/in/) · [GitHub](https://github.com/)
+[LinkedIn](https://www.linkedin.com/in/) · [GitHub](https://github.com/elh-bayat)
